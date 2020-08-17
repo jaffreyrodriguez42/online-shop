@@ -1,7 +1,7 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
-
+		<h1>Jaf</h1>
 	    <!-- start of card -->
 	    <div class="container mt-5">
 	      <div class="row card-deck mb-3 text-center">
