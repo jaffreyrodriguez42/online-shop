@@ -10,7 +10,7 @@
 			<thead>
 				<a href="#" class="btn btn-primary btn-xs pull-right mt-3 mb-3"><b>+</b> Add new category</a
 				<tr>
-					<th class="align-middle">Category ID</th>
+					<th class="align-middle">Product Category</th>
 					<th class="align-middle">Description</th>
 					<th class="align-middle">Status</th>
 					<th class="text-center" colspan="2">Action</th>
@@ -22,8 +22,8 @@
 				<tr>
 					<td class="align-middle"><a href="/categories/{{$category->id }}">{{ $category->name}}</a></td>
 					<td class="align-middle">{{ $category->description}}</td>
-					<td class="text-center align-middle" colspan="4">
-						<a href="/categories/{{$category->id}}/edit" class="btn btn-warning pl-5 pr-5 d-inline-block">Edit</a>
+					<td class="text-right align-middle" colspan="4">
+						<a href="/categories/{{$category->id}}/edit" class="btn btn-warning pl-4 pr-4 d-inline-block">Edit</a>
 						<div class="d-inline-block">
 							<form method="post" action="/categories/{{$category->id}}">
 								@csrf

@@ -12,7 +12,12 @@ class ProductController extends Controller
     {
     	$products = Product::all();
     	// dd($products);
-    	// return view('products.index', compact('products'));
-    	return view()->first(['products.index', '/'], $products);
+    	return view('products.index', compact('products'));
+    	// return view()->first(['products.index', '/'], $products);
+    }
+
+    public function show(Product $product)
+    {
+    	return view('products.show')->with('product', $product);
     }
 }
