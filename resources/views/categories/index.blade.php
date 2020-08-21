@@ -8,7 +8,7 @@
 	<div class="card-body row col-md-12 custyle">
 		<table class="table table-striped custab">
 			<thead>
-				<a href="#" class="btn btn-primary btn-xs pull-right mt-3 mb-3"><b>+</b> Add new category</a
+				<a href="#" class="btn btn-primary btn-xs pull-right mt-3 mb-3"><b>+</b> Create new category</a
 				<tr>
 					<th class="align-middle">Product Category</th>
 					<th class="align-middle">Description</th>

@@ -24,6 +24,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/products', 'ProductController@index');
 
+Route::post('/products', 'ProductController@store');
+
+Route::get('/products/create', 'ProductController@create');
+
 Route::get('/products/{product}', 'ProductController@show');
 
 Route::get('/categories', 'CategoryController@index');

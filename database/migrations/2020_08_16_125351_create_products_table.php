@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->string('name');
-            $table->boolean('isActive');
-            $table->string('image');
+            $table->boolean('isActive')->default(true);
+            $table->string('image')->nullable();
             $table->string('description');
             $table->timestamps();
         });
