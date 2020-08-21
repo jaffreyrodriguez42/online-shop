@@ -32,4 +32,8 @@ Route::get('/products/{product}', 'ProductController@show');
 
 Route::get('/categories', 'CategoryController@index');
 
+Route::get('/categories/{category}/edit', 'CategoryController@edit');
+
 Route::get('/categories/{category}', 'CategoryController@show');
+
+Route::put('/categories/{category}', 'CategoryController@update');
