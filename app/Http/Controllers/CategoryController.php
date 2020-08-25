@@ -41,5 +41,7 @@ class CategoryController extends Controller
         $category->description = $request->description;
 
         $category->save();
+
+        return redirect('/categories');
     }
 }

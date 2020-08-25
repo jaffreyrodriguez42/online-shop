@@ -37,3 +37,8 @@ Route::get('/categories/{category}/edit', 'CategoryController@edit');
 Route::get('/categories/{category}', 'CategoryController@show');
 
 Route::put('/categories/{category}', 'CategoryController@update');
+
+Route::get('/products/{product}/items/create', 'ItemController@create');
+
+Route::post('/products/{product}/items', 'ItemController@store');
+
