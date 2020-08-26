@@ -9,7 +9,7 @@
 		@csrf
 			<label class="ml-5" for="color">Choose Color</label>
 		  	<select id="color" name="color_id">
-			  	<option selected ></option>
+			  	<option></option>
 				  	@foreach($colors as $color)
 				    	<option value="{{ $color->id}}">{{ $color->name}}</option>
 				    @endforeach
@@ -18,20 +18,20 @@
 
 			<label class="ml-3" for="size">Choose Size</label>
 		  	<select id="size" name="size_id">
-			  	<option selected ></option>
+			  	<option></option>
 				  	@foreach($sizes as $size)
 				    	<option value="{{ $size->id}}">{{ $size->name}}</option>
 				    @endforeach
 		  	</select>
 
-		  	<button class="btn btn-success ml-3">Check Stocks</button>
+		  	<button id="checkStocksBtn" type="submit" class="btn btn-success ml-3">Check Stocks</button>
 
 		  	
 {{-- 		  	@if()
 		  	<span class="ml-5">{{ $stocks }}</span>
 		  	@endif --}}
 
-		  	{{-- <span class="ml-5">{{ $stocks }}</span> --}}
+		  	<span id="stocksSpan" class="ml-5"></span>
 		  	
 	</form>
 
@@ -40,5 +40,7 @@
 
 
 	<p>{{ $product->description }}</p>
+
+	<script src="{{asset('js/checkStocks.js')}}"></script>
 
 @endsection
