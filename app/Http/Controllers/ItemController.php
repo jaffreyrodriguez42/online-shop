@@ -40,4 +40,19 @@ class ItemController extends Controller
 
     	return redirect('products/' .$product->id );
     }
+
+    public function checkStocks(Product $product, Request $request)
+    {
+        // dd($product);
+        $validatedData = $request->validate([
+            'color_id' => 'required',
+            'size_id' => 'required'
+        ]);
+
+        $stocks = Item::where('color_id', $request->color_id)->where('size_id', $request->size_id)->where('product_id', $product->id)->count();
+
+        // dd($stocks);
+
+        return redirect('/products/' .$product->id)->with('stocks', $stocks);
+    }
 }

@@ -42,3 +42,6 @@ Route::get('/products/{product}/items/create', 'ItemController@create');
 
 Route::post('/products/{product}/items', 'ItemController@store');
 
+Route::post('/products/{product}/checkStocks', 'ItemController@checkStocks');
+
+

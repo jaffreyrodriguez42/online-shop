@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Item;
+use App\Color;
+use App\Size;
 use Illuminate\Support\Facades\View;
 
 class ProductController extends Controller
@@ -25,7 +28,10 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-    	return view('products.show')->with('product', $product);
+        $colors = Color::all();
+        $sizes = Size::all();
+        $itemStock = Item::where('product_id', $product->id)->where('status', 'available')->count(); 
+    	return view('products.show', compact('colors', 'sizes'))->with('product', $product)->with('itemStock', $itemStock);
     }
 
     public function store(Request $request)
