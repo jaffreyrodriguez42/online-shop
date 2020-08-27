@@ -103,10 +103,10 @@
                     @foreach($products as $key => $product)
                     <div class="card mb-4 shadow-sm">
                       <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">{{ $product->name }}</h4>
+                        <h4 class="my-0 font-weight-normal"><a href="products/{{ $product->id }}">{{ $product->name }}</a></h4>
                       </div>
                       <div class="card-body">
-                        <h1 class="card-title pricing-card-title">{{ $key}} <small class="text-muted">/ mo</small></h1>
+                        <h1 class="card-title pricing-card-title">Price: </h1>
                         <ul class="list-unstyled mt-3 mb-4">
                           <li>{{ $product->description}}</li>
 
