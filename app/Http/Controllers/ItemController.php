@@ -51,8 +51,23 @@ class ItemController extends Controller
 
         $stocks = Item::where('color_id', $request->color_id)->where('size_id', $request->size_id)->where('product_id', $product->id)->count();
 
+        $color = Color::where('id', $request->color_id)->first();
+        $color = $color->name;
+
+        $size = Size::where('id', $request->size_id)->first();
+        $size = $size->name;
+
+
+
+        return response()->json([
+            'data' => $stocks,
+            'color' => $color,
+            'size' => $size
+
+        ], 201);
+
         // dd($stocks);
 
-        return redirect('/products/' .$product->id)->with('stocks', $stocks);
+        // return redirect('/products/' .$product->id)->with('stocks', $stocks);
     }
 }
