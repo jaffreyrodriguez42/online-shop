@@ -13,6 +13,45 @@ const selSize = sizeSelect.value;
 console.log("size is " + selSize);
 
 
+
+
+// colorSelect.addEventListener('change', ()=>{
+// 	sizeSelect.disabled = false;
+// });
+
+// sizeSelect.addEventListener('change', ()=>{
+// 	const selColor = colorSelect.value;
+// 	console.log("color is " + selColor);
+// 	const selSize = sizeSelect.value;
+// 	console.log("size is " + selSize);
+// 	const prodIdVal = prodIdInput.value;
+// 	console.log("product id is " + prodIdVal);
+// 	let data = new FormData;
+
+// 	data.append('color_id', selColor);
+// 	data.append('size_id', selSize);
+
+// 	fetch("/products/" + prodIdVal + "/checkStocks", {
+// 		method: "POST",
+// 		body: data,
+// 		headers: {
+// 				'X-CSRF-TOKEN' : csrfToken
+// 		}
+
+// 	})
+// 	.then((res)=>{
+// 		return res.json();
+// 	})
+// 	.then((data)=>{
+// 		if(data.data){
+// 			console.log(data.data);
+// 			stocksSpan.innerHTML = data.data + " " + data.color + "/" + data.size + " stocks.";
+// 		}else{
+// 			stocksSpan.innerHTML = "0 " + data.color + "/" + data.size + " stocks.";
+// 		}
+// 	})
+// });
+
 checkStocksBtn.addEventListener('click', ()=>{
 	const selColor = colorSelect.value;
 	console.log("color is " + selColor);

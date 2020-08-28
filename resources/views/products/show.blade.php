@@ -29,11 +29,13 @@
 				    @endforeach
 		  	</select>
 		  	<input id="prod_id" type="hidden" name="product_id" value="{{ $product->id }}">
-		  	@can('isAdmin')
-		  	<button id="checkStocksBtn" type="submit" class="btn btn-success ml-3">Check Stocks</button>
-		  	
 
-		  	@else
+		  	<button id="checkStocksBtn" type="submit" class="btn btn-success ml-3">Check Stocks</button>
+				  	
+		  	<span id="stocksSpan" class="ml-3"></span>
+
+
+		  	@cannot('isAdmin')
 		  	<div>
 		  		<span class="">Quantity: </span>
 		  		<input type="number" name="" class="ml-2" style="width: 70px;" min="1" value="1">
@@ -43,12 +45,12 @@
 
 		  	
 		  	<button id="addtocart" type="submit" class="btn btn-success d-block mt-5">Add to cart</button>
-		  	@endcan 
+		 	@endcannot
 {{-- 		  	@if()
 		  	<span class="ml-5">{{ $stocks }}</span>
 		  	@endif --}}
 
-		  	<span id="stocksSpan" class="ml-3"></span>
+		  	
 		  	
 {{-- 	</form> --}}
 
