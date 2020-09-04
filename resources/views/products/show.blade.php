@@ -38,7 +38,7 @@
 		  	@cannot('isAdmin')
 		  	<div>
 		  		<span class="">Quantity: </span>
-		  		<input type="number" name="" class="ml-2" style="width: 70px;" min="1" value="1">
+		  		<input id="quantity" type="number" name="" class="ml-2" style="width: 70px;" min="1" value="1">
 		  	</div>
 		  	
 		  	
@@ -56,5 +56,7 @@
 
 			
 	<script src="{{asset('js/checkStocks.js')}}"></script>
+	<script src="{{asset('js/addtocart.js')}}"></script>
+
 
 @endsection

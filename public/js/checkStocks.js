@@ -1,5 +1,5 @@
 const colorSelect = document.getElementById("color");
-const sizeSelect = document.getElementById("size")
+const sizeSelect = document.getElementById("size");
 const checkStocksBtn = document.querySelector('#checkStocksBtn');
 const stocksSpan = document.querySelector('#stocksSpan');
 const prodIdInput = document.getElementById("prod_id");

@@ -7,6 +7,7 @@ use App\Product;
 use App\Color;
 use App\Size;
 use App\Item;
+use App\Http\Controllers\Controller;
 
 class ItemController extends Controller
 {
@@ -69,5 +70,64 @@ class ItemController extends Controller
         // dd($stocks);
 
         // return redirect('/products/' .$product->id)->with('stocks', $stocks);
+    }
+
+    public function addtocart(Product $product, Request $request)
+    {
+        $validatedData = $request->validate([
+            'color_id' => 'required',
+            'size_id' => 'required',
+            'quantity' => 'required'
+        ]);
+
+        // $item = $request->color_id;
+
+        $color = Color::where('id', $request->color_id)->first();
+        $colorName = $color->name;
+
+        $size = Size::where('id', $request->size_id)->first();
+        $sizeName = $size->name; 
+
+
+
+        session(['prod_id' => $product->id]);
+        session(['prod_name' => $product->name]);
+        session(['color_name' => $colorName]);
+        session(['size_id' => $sizeName]);
+        session(['quantity' => $request->quantity]);
+
+
+
+
+
+
+
+        session(['cart' => 1]);
+
+
+
+        // $value = $request->session()->get('cart');
+
+        // $items = [
+        //     'prod_id' => $product->id,
+        //     'color_id' => $request->color_id,
+        //     'size_id' => $request->size_id,
+        //     'quantity' => $request->quantity
+        // ];
+
+        // $request->session()->put('cart', $items);
+
+        // dd($_SESSION);
+
+        // session('cart', $items);
+
+        // print_r($_SESSION);
+
+        $value = session('cart');
+
+
+        return response()->json([
+            'data' => $value
+        ], 201);
     }
 }

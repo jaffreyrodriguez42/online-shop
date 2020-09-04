@@ -14,6 +14,17 @@ body {
   vertical-align: text-bottom;
 }
 
+.links{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.category-link{
+  font-size: 20px;
+  padding: 10px;
+}
+
 /*
  * Sidebar
  */

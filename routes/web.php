@@ -44,4 +44,8 @@ Route::post('/products/{product}/items', 'ItemController@store');
 
 Route::post('/products/{product}/checkStocks', 'ItemController@checkStocks');
 
+Route::post('/products/{product}/addtocart', 'ItemController@addtocart');
+
+Route::get('/cart', 'CartController@index');
+
 
