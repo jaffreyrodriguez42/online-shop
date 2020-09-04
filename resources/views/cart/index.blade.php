@@ -13,13 +13,23 @@
 			</tr>
 		</thead>
 		<tbody>
+		@if(session()->exists('item'))
+			@foreach($items as $key => $item)
 			<tr>
-				<th scope="row">{{ session('prod_id')}}</th>
-				<th scope="row">{{ session('prod_name')}}</th>
-				<th scope="row">{{ session('color_name')}}</th>
-				<th scope="row">{{ session('size_id')}}</th>
-				<th scope="row">{{ session('quantity')}}</th>
+				<th scope="row">{{ $items[$key]['prod_id']}}</th>
+				<th scope="row">{{ $items[$key]['prod_name']}}</th>
+				<th scope="row">{{ $items[$key]['color_name']}}</th>
+				<th scope="row">{{ $items[$key]['size_name']}}</th>
+				<th scope="row">{{ $items[$key]['quantity']}}</th>
+{{-- 				<th scope="row">{{ session('item')[0]['prod_name']}}</th>
+				<th scope="row">{{ session('item')[0]['color_name']}}</th>
+				<th scope="row">{{ session('item')[0]['size_name']}}</th>
+				<th scope="row">{{ session('item')[0]['quantity']}}</th> --}}
 			</tr>
+			@endforeach
+		@else
+			<p>No items in the cart</p>
+		@endif
 		</tbody>
 	</table>
 @endsection()

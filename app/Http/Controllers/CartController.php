@@ -6,8 +6,19 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-    	return view('cart.index');
+    	if ($request->session()->exists('item')){
+    		$data = $request->session()->all();
+    		$items = $data['item'];
+    		// foreach ($items as $key => $item) {
+    		// 	dd($items[2]['prod_id']);
+    		// }
+    		// dd($items);
+    		return view('cart.index', compact('items'));
+    	}else{
+    		return view('cart.index');
+    	}
+
     }
 }

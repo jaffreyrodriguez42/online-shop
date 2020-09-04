@@ -89,20 +89,31 @@ class ItemController extends Controller
         $sizeName = $size->name; 
 
 
-
-        session(['prod_id' => $product->id]);
-        session(['prod_name' => $product->name]);
-        session(['color_name' => $colorName]);
-        session(['size_id' => $sizeName]);
-        session(['quantity' => $request->quantity]);
-
-
-
-
-
+        $item = array("prod_id" => $product->id,
+                      "prod_name" => $product->name,
+                      "color_name" => $colorName,
+                      "size_name" => $sizeName,
+                      "quantity" => $request->quantity
+                      
+        );
+        
+        $request->session()->push('item', $item);
 
 
-        session(['cart' => 1]);
+
+        // session(['prod_id' => $product->id]);
+        // session(['prod_name' => $product->name]);
+        // session(['color_name' => $colorName]);
+        // session(['size_name' => $sizeName]);
+        // session(['quantity' => $request->quantity]);
+
+
+
+
+
+
+
+        // session(['cart' => 1]);
 
 
 
@@ -123,7 +134,9 @@ class ItemController extends Controller
 
         // print_r($_SESSION);
 
-        $value = session('cart');
+        $value = $request->session()->get('item')[0]['cart'];
+
+        // $value = session('items')[0]['cart'];
 
 
         return response()->json([
