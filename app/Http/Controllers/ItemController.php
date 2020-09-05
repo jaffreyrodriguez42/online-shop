@@ -89,6 +89,10 @@ class ItemController extends Controller
         $sizeName = $size->name; 
 
 
+
+        // $request->session()->put('cart', 'value');
+
+
         $item = array("prod_id" => $product->id,
                       "prod_name" => $product->name,
                       "color_name" => $colorName,
@@ -98,6 +102,11 @@ class ItemController extends Controller
         );
         
         $request->session()->push('item', $item);
+
+        $data = $request->session()->all();
+        $value = count($data['item']);
+
+        $request->session()->put('cart', $value);
 
 
 
@@ -134,7 +143,7 @@ class ItemController extends Controller
 
         // print_r($_SESSION);
 
-        $value = $request->session()->get('item')[0]['cart'];
+        // $value = $request->session()->get('item')[0]['cart'];
 
         // $value = session('items')[0]['cart'];
 

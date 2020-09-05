@@ -14,7 +14,7 @@ class CartController extends Controller
     		// foreach ($items as $key => $item) {
     		// 	dd($items[2]['prod_id']);
     		// }
-    		// dd($items);
+    		// dd($data['cart']);
     		return view('cart.index', compact('items'));
     	}else{
     		return view('cart.index');
