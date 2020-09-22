@@ -27,7 +27,8 @@ class ItemController extends Controller
     	$validatedData = $request->validate([
     	    'name' => 'required',
     	    'color_id' => 'required',
-    	    'size_id' => 'required'
+    	    'size_id' => 'required',
+            'price' => 'required'
     	]);
 
     	$item = new Item;
@@ -35,6 +36,7 @@ class ItemController extends Controller
     	$item->product_id = $product->id;
     	$item->color_id = $request->color_id;
     	$item->size_id = $request->size_id;
+        $item->price = $request->price;
     	$item->image = "itemimage.jpg";
 
     	$item->save();
@@ -77,7 +79,8 @@ class ItemController extends Controller
         $validatedData = $request->validate([
             'color_id' => 'required',
             'size_id' => 'required',
-            'quantity' => 'required'
+            'quantity' => 'required',
+            'price' => 'required'
         ]);
 
         // $item = $request->color_id;
@@ -88,16 +91,19 @@ class ItemController extends Controller
         $size = Size::where('id', $request->size_id)->first();
         $sizeName = $size->name; 
 
+        $itemSel = Item::where('color_id', $request->color_id)->where('size_id', $request->size_id)->first();
+
 
 
         // $request->session()->put('cart', 'value');
 
 
-        $item = array("prod_id" => $product->id,
-                      "prod_name" => $product->name,
+        $item = array("item_id" => $itemSel->id,
+                      "item_name" => $itemSel->name,
                       "color_name" => $colorName,
                       "size_name" => $sizeName,
-                      "quantity" => $request->quantity
+                      "quantity" => $request->quantity,
+                      "price" => $itemSel->price
                       
         );
         

@@ -37,6 +37,16 @@
 	          <div class="alert alert-danger">{{ $message }}</div>
 	      @enderror
 	    </div>
+
+	    <div class="form-group col-md-8">
+	      <label for="price">Price</label>
+	      <input type="number" class="form-control" id="price" name="price">
+	      @error('price')
+	          <div class="alert alert-danger">{{ $message }}</div>
+	      @enderror
+	    </div>
+
+
 	</div>
 
 	  <button type="submit" class="btn btn-primary">Add Item</button>

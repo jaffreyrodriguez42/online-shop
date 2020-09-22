@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('color_id');
             $table->unsignedBigInteger('size_id');
+            $table->decimal('price', 8, 2);
             $table->string('name');
             $table->string('image');
             $table->string('status')->default('available');

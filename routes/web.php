@@ -48,4 +48,6 @@ Route::post('/products/{product}/addtocart', 'ItemController@addtocart');
 
 Route::get('/cart', 'CartController@index');
 
+Route::post('/checkout', 'CheckoutController@store');
+
 

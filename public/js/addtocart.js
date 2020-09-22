@@ -4,6 +4,8 @@
 const cartLink = document.getElementById('cart'); 
 const addtocartBtn = document.getElementById('addtocart');
 const quantityInput = document.getElementById('quantity');
+const priceInput = document.getElementById('price');
+
 // const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 addtocartBtn.addEventListener('click', function(){
@@ -20,6 +22,7 @@ addtocartBtn.addEventListener('click', function(){
 	data.append('color_id', selColor);
 	data.append('size_id', selSize);
 	data.append('quantity', quantityVal);
+	data.append('price', priceInput);
 
 	fetch("/products/" + prodIdVal + "/addtocart", {
 		method: "POST",
